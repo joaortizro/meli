@@ -3,10 +3,14 @@ package main
 import (
 	"log"
 	"meli/internal/infrastructure/server"
+	"meli/internal/infrastructure/redis"
 )
 
 func  main()  {
-	srv := server.CreateServer("localhost",8080)
+	redisClient := redisServer.CreateRedisClient("redis",6379)
+
+	srv := server.CreateServer("0.0.0.0",8080,redisClient)
+	
 	err := srv.Start()
 	
     if err != nil {
