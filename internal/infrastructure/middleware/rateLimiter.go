@@ -12,8 +12,8 @@ import (
 
 var ctx = context.Background()
 
-const window = 60 * time.Second // minuto
-const limit = 10                // 10 request
+const window = time.Minute 
+const limit = 10
 
 func RateLimiterMiddleware(redisClient *redis.Client) gin.HandlerFunc {
 	return func(c *gin.Context) {
