@@ -11,7 +11,7 @@ func  main()  {
 
 	srv := server.CreateServer("0.0.0.0",8080,redisClient)
 	
-	err := srv.Start()
+	err := srv.Start(redisClient)
 	
     if err != nil {
         log.Fatalf("Server error: %v", err)

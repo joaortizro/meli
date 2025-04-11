@@ -39,7 +39,6 @@ func RateLimiterMiddleware(redisClient *redis.Client) gin.HandlerFunc {
 			return
 		}
 
-		// pasa al siguiente middleware
 		c.Next()
 	}
 }
